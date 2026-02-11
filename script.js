@@ -3,12 +3,14 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Animate hamburger to X
-    hamburger.classList.toggle('active');
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        
+        // Animate hamburger to X
+        hamburger.classList.toggle('active');
+    });
+}
 
 // Close mobile menu when a link is clicked
 navLinks.forEach(link => {
@@ -36,20 +38,19 @@ navLinks.forEach(link => {
 });
 
 // Add scroll effect to navbar
-let lastScroll = 0;
 const navbar = document.querySelector('header');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-    } else {
-        navbar.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});
+if (navbar) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+        } else {
+            navbar.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+        }
+    });
+}
 
 // Fade-in animation on scroll
 const observerOptions = {
